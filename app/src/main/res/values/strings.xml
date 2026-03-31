@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Flixify Pro</string>
+    
+    <!-- Auth -->
+    <string name="login_title">Güvenli Erişim</string>
+    <string name="login_subtitle">16 haneli özel erişim kodunuzu girin</string>
+    <string name="access_code">Erişim Kodu</string>
+    <string name="access_code_hint">X7F2 A9B1 C4D8 E6F0</string>
+    <string name="show">Göster</string>
+    <string name="hide">Gizle</string>
+    <string name="login">OTURUM AÇ</string>
+    <string name="create_account">Hesap Oluştur</string>
+    <string name="no_account">Hesabınız yok mu?</string>
+    <string name="has_account">Zaten hesabınız var mı?</string>
+    <string name="login_now">Giriş Yap</string>
+    <string name="generate_code">Kod Oluştur</string>
+    <string name="code_generated">Kod Oluşturuldu</string>
+    <string name="save_code_warning">Aşağıdaki özel erişim kodunuzu kaydedin</string>
+    <string name="copy_code">Kodu Kopyala</string>
+    <string name="acknowledge">Erişim kodumu güvenli bir şekilde kaydettiğimi onaylıyorum</string>
+    <string name="continue_text">Devam Et</string>
+    <string name="reveal_warning">⚠️ Önemli Uyarı</string>
+    <string name="code_warning_text">Bu kod gelecekte hesabınıza erişim için gereklidir ve geri alınamaz. Lütfen şimdi kopyalayıp güvenli bir yerde saklayın.</string>
+    <string name="revealing_code">Kod açığa çıkıyor...</string>
+    
+    <!-- Home -->
+    <string name="home">Ana Sayfa</string>
+    <string name="movies">Filmler</string>
+    <string name="series">Diziler</string>
+    <string name="live_tv">Canlı TV</string>
+    <string name="profile">Profil</string>
+    <string name="play">Oynat</string>
+    <string name="more_info">Daha Fazla Bilgi</string>
+    <string name="continue_watching">İzlemeye Devam Et</string>
+    <string name="trending">Trend Filmler</string>
+    <string name="new_releases">Yeni Çıkanlar</string>
+    <string name="popular_series">Popüler Diziler</string>
+    <string name="live">CANLI</string>
+    <string name="see_all">Tümünü Gör</string>
+    
+    <!-- Player -->
+    <string name="back">Geri</string>
+    <string name="fullscreen">Tam Ekran</string>
+    <string name="play_pause">Oynat/Duraklat</string>
+    <string name="seek_back">10 saniye geri</string>
+    <string name="seek_forward">10 saniye ileri</string>
+    
+    <!-- Search -->
+    <string name="search_movies">Film ara...</string>
+    <string name="search_channels">Kanal ara...</string>
+    <string name="search_series">Dizi ara...</string>
+    
+    <!-- Common -->
+    <string name="error">Bir hata oluştu</string>
+    <string name="retry">Tekrar Dene</string>
+    <string name="cancel">İptal</string>
+    <string name="ok">Tamam</string>
+    <string name="loading">Yükleniyor...</string>
+</resources>

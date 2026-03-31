@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Brand Colors -->
+    <color name="accent">#E50914</color>
+    <color name="accent_strong">#FF2432</color>
+    
+    <!-- Background Colors (Netflix-like Dark Theme) -->
+    <color name="background">#05070B</color>
+    <color name="background_dark">#020307</color>
+    <color name="surface">#090C13</color>
+    <color name="surface_variant">#131923</color>
+    <color name="panel">#CC0D121C</color>
+    <color name="panel_strong">#F0080B11</color>
+    
+    <!-- Text Colors -->
+    <color name="text_primary">#F7F8FB</color>
+    <color name="text_secondary">#B1BAC9</color>
+    <color name="text_muted">#8F98A8</color>
+    <color name="text_disabled">#5A6676</color>
+    
+    <!-- UI Colors -->
+    <color name="border_soft">#1AFFFFFF</color>
+    <color name="border">#2A3443</color>
+    <color name="divider">#14FFFFFF</color>
+    
+    <!-- Status Colors -->
+    <color name="success">#30D19D</color>
+    <color name="error">#FF7D86</color>
+    <color name="warning">#FFB86C</color>
+    <color name="info">#7CB6FF</color>
+    
+    <!-- Button Colors -->
+    <color name="button_primary">#DC2626</color>
+    <color name="button_primary_pressed">#B91C1C</color>
+    <color name="button_secondary">#1E293B</color>
+    <color name="button_secondary_pressed">#252F3F</color>
+    
+    <!-- Card Colors -->
+    <color name="card_background">#0D121C</color>
+    <color name="card_border">#1B2534</color>
+    <color name="card_glow">#3B82F6</color>
+    
+    <!-- Input Colors -->
+    <color name="input_background">#0DFFFFFF</color>
+    <color name="input_border">#1AFFFFFF</color>
+    <color name="input_border_focus">#40FFFFFF</color>
+    
+    <!-- Gradient Colors -->
+    <color name="gradient_start">#1DE50914</color>
+    <color name="gradient_end">#11224DFF</color>
+    
+    <!-- System -->
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="transparent">#00000000</color>
+</resources>
