@@ -1,6 +1,7 @@
 package com.flixify.app.presentation.auth
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
@@ -401,7 +402,3 @@ fun PrimaryButton(
     }
 }
 
-// Extension for border
-defun Modifier.border(width: androidx.compose.ui.unit.Dp, color: Color, shape: androidx.compose.ui.graphics.Shape) = this.then(
-    androidx.compose.foundation.border(width, color, shape)
-)
