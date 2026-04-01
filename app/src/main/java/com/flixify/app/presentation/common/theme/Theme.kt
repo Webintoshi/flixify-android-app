@@ -10,35 +10,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
-// Colors - Exact match to Windows Qt app
-val Background = Color(0xFF05070B)
-val Surface = Color(0xFF090C13)
-val SurfaceVariant = Color(0xFF131923)
-val Panel = Color(0xF0080B11)
-
-val Accent = Color(0xFFE50914)
-val AccentStrong = Color(0xFFFF2432)
-val AccentSoft = Color(0xFFE50914).copy(alpha = 0.13f)
-
-val TextPrimary = Color(0xFFF7F8FB)
-val TextMuted = Color(0xFFB1BAC9)
-val TextSecondary = Color(0xFF94A3B8)
-
-val Border = Color(0x33FFFFFF)
-val BorderSoft = Color(0x1AFFFFFF)
-
-val Success = Color(0xFF30D19D)
-val Error = Color(0xFFFF7D86)
-val Info = Color(0xFF7CB6FF)
-val Warning = Color(0xFFFBBF24)
-
-val ButtonPrimary = Color(0xFFE50914)
-val ButtonPrimaryPressed = Color(0xFFB91C1C)
-val ButtonSecondary = Color(0xFF1F2937)
-val ButtonSecondaryPressed = Color(0xFF374151)
-
-val GlassBackground = Color(0xCC0D121C)
-
+// Colors are defined in Color.kt
 // Shapes
 val GlassCardShape = RoundedCornerShape(24.dp)
 val InputShape = RoundedCornerShape(20.dp)
