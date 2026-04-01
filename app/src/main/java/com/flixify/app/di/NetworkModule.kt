@@ -2,7 +2,7 @@ package com.flixify.app.di
 
 import com.flixify.app.BuildConfig
 import com.flixify.app.data.remote.AuthInterceptor
-import com.flixify.app.data.remote.FlixifyApi
+import com.flixify.app.data.remote.ApiService
 import com.flixify.app.data.remote.TokenRefreshInterceptor
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import dagger.Module
@@ -67,7 +67,7 @@ object NetworkModule {
     
     @Provides
     @Singleton
-    fun provideFlixifyApi(retrofit: Retrofit): FlixifyApi {
-        return retrofit.create(FlixifyApi::class.java)
+    fun provideApiService(retrofit: Retrofit): ApiService {
+        return retrofit.create(ApiService::class.java)
     }
 }
