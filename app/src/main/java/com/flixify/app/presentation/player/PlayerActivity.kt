@@ -423,11 +423,11 @@ private fun VideoOverlay(
                     if (!isLive && duration > 0) {
                         Slider(
                             value = currentTime.toFloat().coerceIn(0f, duration.toFloat()),
-                            onValueChange = { 
+                            onValueChange = { newValue ->
                                 if (wasPlayingBeforeSeek) {
                                     wasPlayingBeforeSeek = isPlaying
                                 }
-                                onSeek(it.toLong())
+                                onSeek(newValue.toLong())
                             },
                             onValueChangeFinished = {
                                 if (wasPlayingBeforeSeek) {
