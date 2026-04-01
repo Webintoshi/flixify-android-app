@@ -7,7 +7,7 @@ import kotlinx.serialization.json.JsonElement
 import retrofit2.Response
 import retrofit2.http.*
 
-interface FlixifyApi {
+interface ApiService {
     
     // Auth
     @POST("auth/register-anon")
