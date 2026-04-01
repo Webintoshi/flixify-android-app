@@ -23,17 +23,22 @@ jobs:
     - name: Grant execute permission for gradlew
       run: chmod +x ./gradlew
 
-    - name: Build APK with Gradle Wrapper
-      run: ./gradlew assembleDebug --stacktrace --info
+    - name: Clean and Build APK
+      run: |
+        ./gradlew clean
+        ./gradlew assembleDebug --stacktrace --scan 2>&1 | tee build.log
+      continue-on-error: true
 
-    - name: List output files (debug)
-      if: failure()
-      run: find . -name "*.apk" -o -name "build" -type d | head -20
-
-    - name: Upload APK
+    - name: Upload build logs
       uses: actions/upload-artifact@v4
       if: always()
       with:
+        name: build-logs
+        path: build.log
+
+    - name: Upload APK
+      uses: actions/upload-artifact@v4
+      if: success()
+      with:
         name: flixify-debug-apk
         path: app/build/outputs/apk/debug/*.apk
-        if-no-files-found: warn
