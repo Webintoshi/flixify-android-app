@@ -10,11 +10,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
-// Colors are defined in Color.kt
-// Shapes
-val GlassCardShape = RoundedCornerShape(24.dp)
-val InputShape = RoundedCornerShape(20.dp)
-val ButtonShape = RoundedCornerShape(16.dp)
+// Colors and Shapes are defined in Color.kt and Shape.kt
 
 // Typography
 val FlixifyTypography = Typography(

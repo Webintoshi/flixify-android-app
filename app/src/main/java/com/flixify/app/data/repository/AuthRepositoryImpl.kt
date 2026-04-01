@@ -42,12 +42,7 @@ class AuthRepositoryImpl @Inject constructor(
     
     override val currentUser: Flow<User?> = dataStore.data.map { prefs ->
         prefs[ACCESS_TOKEN]?.let {
-            // In a real app, decode JWT or fetch user profile
-            User(
-                id = "",
-                kryptoniteCode = "",
-                hasActiveSubscription = true
-            )
+            User(id = "", kryptoniteCode = "", hasActiveSubscription = false)
         }
     }
     
@@ -59,7 +54,6 @@ class AuthRepositoryImpl @Inject constructor(
             if (response.isSuccessful) {
                 val body = response.body()
                 if (body != null) {
-                    // Save tokens
                     dataStore.edit { prefs ->
                         prefs[ACCESS_TOKEN] = body.accessToken
                         prefs[REFRESH_TOKEN] = body.refreshToken
@@ -69,37 +63,23 @@ class AuthRepositoryImpl @Inject constructor(
                     AuthResult.Error("Empty response")
                 }
             } else {
-                when (response.code()) {
-                    401 -> AuthResult.Error("Geçersiz erişim kodu")
-                    429 -> AuthResult.Error("Çok fazla deneme. Lütfen bekleyin.")
-                    else -> AuthResult.Error("Giriş başarısız: ${response.code()}")
-                }
+                AuthResult.Error("Login failed: ${response.code()}")
             }
         } catch (e: Exception) {
-            AuthResult.Error(e.message ?: "Bilinmeyen hata")
+            AuthResult.Error(e.message ?: "Unknown error")
         }
     }
     
     override suspend fun register(): AuthResult<User> {
         return try {
-            // Get or create installation ID
-            val installationId = dataStore.data.map { it[INSTALLATION_ID] }.let { flow ->
-                var id: String? = null
-                flow.collect { id = it }
-                id ?: UUID.randomUUID().toString().also { newId ->
-                    dataStore.edit { prefs ->
-                        prefs[INSTALLATION_ID] = newId
-                    }
-                }
-            }
+            val installationId = UUID.randomUUID().toString()
             
             val request = RegisterAnonRequest(installationId = installationId)
-            val response = apiService.registerAnonymous(request)
+            val response = apiService.registerAnon(request)
             
             if (response.isSuccessful) {
                 val body = response.body()
                 if (body != null) {
-                    // Create a user with the generated code
                     val user = User(
                         id = installationId,
                         kryptoniteCode = body.kryptoniteCode,
@@ -110,26 +90,26 @@ class AuthRepositoryImpl @Inject constructor(
                     AuthResult.Error("Empty response")
                 }
             } else {
-                AuthResult.Error("Kayıt başarısız: ${response.code()}")
+                AuthResult.Error("Register failed: ${response.code()}")
             }
         } catch (e: Exception) {
-            AuthResult.Error(e.message ?: "Bilinmeyen hata")
+            AuthResult.Error(e.message ?: "Unknown error")
         }
     }
     
     override suspend fun refreshToken(): AuthResult<AuthToken> {
         return try {
-            val currentRefreshToken = dataStore.data.map { it[REFRESH_TOKEN] }.let { flow ->
+            val currentToken = dataStore.data.map { it[REFRESH_TOKEN] }.let { flow ->
                 var token: String? = null
                 flow.collect { token = it }
                 token
             }
             
-            if (currentRefreshToken == null) {
+            if (currentToken == null) {
                 return AuthResult.Error("No refresh token")
             }
             
-            val response = apiService.refreshToken(currentRefreshToken)
+            val response = apiService.refreshToken(currentToken)
             
             if (response.isSuccessful) {
                 val body = response.body()
@@ -138,12 +118,7 @@ class AuthRepositoryImpl @Inject constructor(
                         prefs[ACCESS_TOKEN] = body.accessToken
                         prefs[REFRESH_TOKEN] = body.refreshToken
                     }
-                    AuthResult.Success(
-                        AuthToken(
-                            accessToken = body.accessToken,
-                            refreshToken = body.refreshToken
-                        )
-                    )
+                    AuthResult.Success(AuthToken(body.accessToken, body.refreshToken))
                 } else {
                     AuthResult.Error("Empty response")
                 }

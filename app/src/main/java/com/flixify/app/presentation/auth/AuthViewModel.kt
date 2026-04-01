@@ -142,7 +142,7 @@ class AuthViewModel @Inject constructor(
             
             when (val result = authRepository.register()) {
                 is AuthResult.Success -> {
-                    val code = result.data.user?.kryptoniteCode ?: ""
+                    val code = result.data.kryptoniteCode ?: ""
                     _registerState.update { 
                         it.copy(
                             isGenerating = false,

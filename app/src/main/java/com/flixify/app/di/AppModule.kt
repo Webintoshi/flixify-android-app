@@ -83,9 +83,5 @@ object AppModule {
         authRepositoryImpl: AuthRepositoryImpl
     ): AuthRepository = authRepositoryImpl
     
-    @Provides
-    @Singleton
-    fun provideMediaRepository(
-        mediaRepositoryImpl: MediaRepositoryImpl
-    ): MediaRepository = mediaRepositoryImpl
+
 }
